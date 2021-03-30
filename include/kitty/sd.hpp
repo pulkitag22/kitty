@@ -37,6 +37,7 @@
 #include "npn.hpp"
 #include "operations.hpp"
 #include "constructors.hpp"
+#include "print.hpp"
 #include "hash.hpp"
 
 namespace kitty
@@ -57,6 +58,9 @@ std::unordered_set<kitty::dynamic_truth_table, kitty::hash<kitty::dynamic_truth_
   kitty::dynamic_truth_table tt( num_vars );
   do
   {
+	std::cout<<"Finding NPN Class for : ";
+	kitty::print_binary(tt);
+	std::cout<<std::endl;
     /* apply NPN canonization and add resulting representative to set */
     classes.insert( exact_npn_representative( tt ) );
 
@@ -145,6 +149,9 @@ std::unordered_set<kitty::dynamic_truth_table, kitty::hash<kitty::dynamic_truth_
   do
   {
 
+	std::cout<<"Finding SD Class for : ";
+	kitty::print_binary(*itr);
+	std::cout<<std::endl;
     extended_tt = extend_tt( ( *itr ) );
 
     sd_tt = kitty::binary_or( kitty::binary_and( extended_tt, a ), kitty::binary_and( ~a, dual_of( extended_tt ) ) );
