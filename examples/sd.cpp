@@ -31,7 +31,7 @@
 int main()
 {
 
-  uint32_t num_vars = 2u;
+  uint32_t num_vars = 3u;
   const auto classes_2u = kitty::calculate_sd_represtative_class( num_vars );
 
   /* Print the size of the class. */
@@ -39,7 +39,7 @@ int main()
             << ( 1 << ( 1 << num_vars ) ) << " functions into "
             << classes_2u.size() << " classes." << std::endl;
 			
-	num_vars = 3u;
+	num_vars = 4u;
   const auto classes_3u = kitty::calculate_sd_represtative_class( num_vars );
 
   /* Print the size of the class. */
@@ -47,7 +47,7 @@ int main()
             << ( 1 << ( 1 << num_vars ) ) << " functions into "
             << classes_3u.size() << " classes." << std::endl;
 
-  num_vars = 4u;
+  num_vars = 5u;
   const auto classes_4u = kitty::calculate_sd_represtative_class( num_vars );
 
   /* Print the size of the class. */
@@ -55,7 +55,7 @@ int main()
             << ( 1 << ( 1 << num_vars ) ) << " functions into "
             << classes_4u.size() << " classes." << std::endl;
 
-  num_vars = 5u;
+  num_vars = 3u;
   const auto classes_5u = kitty::calculate_sd_represtative_class( num_vars );
 
   /* Print the size of the class.*/
