@@ -66,11 +66,12 @@ std::unordered_set<kitty::dynamic_truth_table, kitty::hash<kitty::dynamic_truth_
     if ( DEBUG_OUT )
       std::cout << std::endl;
     /* apply NPN canonization and add resulting representative to set */
-    auto class_size = classes.size();
 		classes.insert( exact_npn_representative( tt ) );
-		if (class_size != classes.size())
+if (DEBUG_OUT){
+    auto class_size = classes.size();
+if (class_size != classes.size())
 						std::cout<< "New class size: " << classes.size()<< std::endl ;
-    /* increment truth table */
+    }/* increment truth table */
     kitty::next_inplace( tt );
   } while ( !kitty::is_const0( tt ) );
 
@@ -166,11 +167,12 @@ std::unordered_set<kitty::dynamic_truth_table, kitty::hash<kitty::dynamic_truth_
     sd_tt = kitty::binary_or( kitty::binary_and( extended_tt, a ), kitty::binary_and( ~a, dual_of( extended_tt ) ) );
 
     /* apply NPN canonization and add resulting representative to set */
-    auto class_size = classes.size();
     classes.insert( kitty::exact_npn_representative( sd_tt ) );
-		if (class_size != classes.size())
+	if (DEBUG_OUT){
+    	auto class_size = classes.size();
+					if (class_size != classes.size())
 						std::cout<< "New SD class size: " << classes.size()<< std::endl ;
-    /* increment to next tt in the class. */
+    }/* increment to next tt in the class. */
     itr++;
   } while ( itr != npn_class.end() );
 
