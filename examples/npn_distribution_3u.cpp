@@ -34,15 +34,28 @@ int main()
   }
 
   i = 0;
-  for ( i = 0; i < size_npn; i++ )
+	int temp=0;
+	int rain_check = 0;
+  for ( i = 0; i < size_sd; i++ )
   {
-    auto temp = kitty::exact_sd_canonization( array_npn[i] );
-		std::cout <<"";
-    kitty::print_binary(array_npn[i]);
-		std::cout << ",";
-		kitty::print_binary(temp);
+		std::cout<<i<< " " ;
+		kitty::print_binary(array_sd[i]);
 		std::cout<<std::endl;
+		temp = 0;
+		
+		for (int j=0; j<size_npn; j++){
+						if (kitty::equal(array_sd[i], kitty::exact_sd_canonization(array_npn[j]))){
+										std::cout<<temp+1<<" ";
+										kitty::print_binary(array_npn[j]);
+										std::cout<<std::endl;
+										temp++;
+										rain_check++;
+						}
+						continue;
+		}
   }
+
+	std::cout<<rain_check<< " ";
 
   return 0;
 }
